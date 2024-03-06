@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 // stack using array
-class stack
+class Stack
 {
 private:
     // attributes
@@ -9,7 +9,7 @@ private:
 
 public:
     // constructor
-    stack(int size)
+    Stack(int size)
     {
         arr = new int[size];
         size = size;
@@ -41,7 +41,7 @@ public:
         }
         else
         {
-            // return last element in stack after pop
+            // return deleted element
             top--;
             return arr[top];
         }
@@ -89,4 +89,32 @@ public:
     {
         top = 0;
     }
+    void print_stack()
+    {
+        if (top == 0)
+            cout << "stack is empty" << endl;
+        else
+        {
+            for (int i = 0; i < top; i++)
+            {
+                cout << arr[i] << endl;
+            }
+        }
+    }
 };
+
+int main()
+{
+    Stack myStack(10);
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+    myStack.push(40);
+    cout << myStack.get_top() << endl;
+    cout << myStack.get_num_of_elements() << endl;
+    cout << myStack.isFull() << endl;
+    myStack.print_stack();
+    cout << myStack.pop() << endl;
+    myStack.print_stack();
+    return 0;
+}
