@@ -36,7 +36,7 @@ public:
         // first check if stack is empty
         if (top == 0)
         {
-            cout << 'stack is empty' << endl;
+            cout << "stack is empty" << endl;
             return -1;
         }
         else
@@ -50,7 +50,7 @@ public:
     {
         if (top == 0)
         {
-            cout << 'stack is empty' << endl;
+            cout << "stack is empty" << endl;
             return -1;
         }
         else
