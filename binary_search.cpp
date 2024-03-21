@@ -25,26 +25,13 @@ int binary_search(int *arr, int size, int num)
 }
 
 // generate array with sorted random numbers
-void generate_sorted_rand_arr(int *arr, int size)
+void generate_sorted_random_numbers(int *arr, int size, int max)
 {
-    srand(time(0));
-    // generate rand arr
-    for (int i = 0; i < size; i++)
+    srand(time(NULL));
+    arr[0] = rand() % max;
+    for (int k = 1; k < size; k++)
     {
-        arr[i] = rand() % 20;
-    }
-    // bubble sorting
-    for (int i = 0; i < size - 1; i++)
-    {
-        for (int j = 0; j < size - i - 1; j++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+        arr[k] = arr[k - 1] + rand() % max;
     }
 }
 
@@ -54,7 +41,7 @@ int main()
     cout << "Please enter size of array" << endl;
     cin >> size;
     arr = new int[size];
-    generate_sorted_rand_arr(arr, size);
+    generate_sorted_random_numbers(arr, size, 20);
     // printing sorted rand array
     cout << "sorted rand array" << endl;
     for (int i = 0; i < size; i++)
